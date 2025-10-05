@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Wilify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0B1120;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <div class="min-h-screen flex flex-col items-center justify-center bg-cover bg-center py-10" style="background-image: linear-gradient(rgba(11, 17, 32, 0.8), rgba(11, 17, 32, 1)), url('https://placehold.co/1920x1080/0B1120/FFFFFF?text=Music+Lovers');">
+        <div class="bg-[#2A334F]/80 backdrop-blur-sm p-8 sm:p-12 rounded-2xl shadow-2xl w-full max-w-md text-center">
+            <div class="flex justify-center items-center gap-2 mb-6">
+               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white"><path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM8.5 16.5C8.5 17.052 8.052 17.5 7.5 17.5C6.948 17.5 6.5 17.052 6.5 16.5V7.5C6.5 6.948 6.948 6.5 7.5 6.5C8.052 6.5 8.5 6.948 8.5 7.5V16.5ZM13.5 16.5C13.5 17.052 13.052 17.5 12.5 17.5C11.948 17.5 11.5 17.052 11.5 16.5V7.5C11.5 6.948 11.948 6.5 12.5 6.5C13.052 6.5 13.5 6.948 13.5 7.5V16.5ZM18.5 12.5C18.5 13.052 18.052 13.5 17.5 13.5H15.5C14.948 13.5 14.5 13.052 14.5 12.5V7.5C14.5 6.948 14.948 6.5 15.5 6.5H17.5C18.052 6.5 18.5 6.948 18.5 7.5V12.5Z" fill="#5E81F4"/></svg>
+               <h1 class="text-4xl font-bold text-white">Wilify</h1>
+           </div>
+           <h2 class="text-2xl font-semibold text-white mb-4">Sign Up to Your Best Music Experience!</h2>
+           <form class="space-y-4" action="index.html">
+               <input type="text" placeholder="Enter your name" class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#5E81F4] transition" required>
+               <input type="email" placeholder="Enter your email" class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#5E81F4] transition" required>
+               <input type="password" placeholder="Enter password" class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#5E81F4] transition" required>
+               <div class="flex gap-4">
+                   <input type="number" placeholder="Enter Age" class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#5E81F4] transition">
+                   <select class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#5E81F4] transition">
+                       <option>Select</option>
+                       <option>Male</option>
+                       <option>Female</option>
+                   </select>
+               </div>
+               <button type="submit" class="w-full bg-gray-200 text-gray-900 font-bold py-3 rounded-lg hover:bg-white transition-transform transform hover:scale-105">Sign Up</button>
+           </form>
+           <p class="mt-6 text-sm">Already have an account? <a href="login.html" class="font-bold text-[#5E81F4] hover:underline">Log In into Account</a></p>
+       </div>
+       <footer class="absolute bottom-4 text-gray-400 text-sm">© 2024 Wilify</footer>
+   </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilify - Your Best Music Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0B1120; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B1120; }
+        ::-webkit-scrollbar-thumb { background: #2A334F; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4A5568; }
+        .active-nav-link { background-color: #2A334F; color: white; }
+    </style>
+</head>
+<body class="text-gray-300">
+    <div class="min-h-screen md:flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#141A2C] p-6 flex-col hidden md:flex">
+            <div class="flex items-center gap-2 mb-10">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM8.5 16.5C8.5 17.052 8.052 17.5 7.5 17.5C6.948 17.5 6.5 17.052 6.5 16.5V7.5C6.5 6.948 6.948 6.5 7.5 6.5C8.052 6.5 8.5 6.948 8.5 7.5V16.5ZM13.5 16.5C13.5 17.052 13.052 17.5 12.5 17.5C11.948 17.5 11.5 17.052 11.5 16.5V7.5C11.5 6.948 11.948 6.5 12.5 6.5C13.052 6.5 13.5 6.948 13.5 7.5V16.5ZM18.5 12.5C18.5 13.052 18.052 13.5 17.5 13.5H15.5C14.948 13.5 14.5 13.052 14.5 12.5V7.5C14.5 6.948 14.948 6.5 15.5 6.5H17.5C18.052 6.5 18.5 6.948 18.5 7.5V12.5Z" fill="#5E81F4"/></svg>
+                <h1 class="text-3xl font-bold text-white">Wilify</h1>
+            </div>
+            <nav class="flex flex-col space-y-2 mb-8">
+                <a href="index.html" class="nav-link active-nav-link flex items-center gap-4 p-3 rounded-lg"><i data-feather="home" class="w-5 h-5"></i><span>Home</span></a>
+                <a href="songs.html" class="nav-link flex items-center gap-4 p-3 rounded-lg hover:bg-[#2A334F] transition-colors"><i data-feather="music" class="w-5 h-5"></i><span>Songs</span></a>
+                <a href="about.html" class="nav-link flex items-center gap-4 p-3 rounded-lg hover:bg-[#2A334F] transition-colors"><i data-feather="info" class="w-5 h-5"></i><span>About Us</span></a>
+            </nav>
+            <div class="space-y-2">
+                <h2 class="font-semibold text-gray-400">Playlist</h2>
+                <a href="#" class="flex items-center gap-4 p-3 text-white"><div class="w-8 h-8 bg-gray-200 flex items-center justify-center rounded"><i data-feather="plus" class="text-gray-800"></i></div><span>Create New</span></a>
+            </div>
+            <div class="mt-auto"><a href="about.html" class="bg-gradient-to-br from-[#5E81F4] to-[#8A63D2] p-4 rounded-lg text-center text-white block"><h3 class="font-bold text-lg">Discover More!</h3><p class="text-sm my-2">Click Here More About Us</p><img src="https://placehold.co/150x80/FFFFFF/0B1120?text=Artists" class="rounded-lg mx-auto" alt="Artists"></a></div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto">
+            <!-- Profile Header -->
+            <header class="flex justify-end items-center mb-8">
+                <!-- Buttons for Logged Out state -->
+                <div id="loginButtons" class="flex items-center gap-6">
+                    <a href="signup.html" class="text-white font-medium hover:text-gray-300 transition-colors">Sign Up</a>
+                    <a href="login.html" class="bg-white text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition-transform transform hover:scale-105">Log In</a>
+                </div>
+
+                <!-- Profile for Logged In state -->
+                <div id="profileSection" class="relative hidden">
+                    <button id="profileButton" class="w-10 h-10 rounded-full bg-gray-500 overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <img src="https://placehold.co/40x40/A0AEC0/0B1120?text=A" alt="User Profile">
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="profileDropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-[#2A334F] ring-1 ring-black ring-opacity-5 z-10" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-[#4A5568]" role="menuitem" tabindex="-1">Your Profile</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-[#4A5568]" role="menuitem" tabindex="-1">Settings</a>
+                        <a href="#" id="logoutButton" class="block px-4 py-2 text-sm text-gray-300 hover:bg-[#4A5568]" role="menuitem" tabindex="-1">Sign out</a>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-white">Recommendation Songs</h2>
+                <a href="songs.html" class="text-sm text-gray-400 hover:text-white">More</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/4A5568/FFFFFF?text=Hozier" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Too Sweet</h4><p class="text-sm text-gray-400">Hozier</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/4A5568/FFFFFF?text=Chase+Atlantic" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Into It</h4><p class="text-sm text-gray-400">Chase Atlantic</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/4A5568/FFFFFF?text=The+Weeknd" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Starboy</h4><p class="text-sm text-gray-400">The Weeknd</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/4A5568/FFFFFF?text=One+Direction" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Perfect</h4><p class="text-sm text-gray-400">One Direction</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/4A5568/FFFFFF?text=Arctic+Monkeys" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Arabella</h4><p class="text-sm text-gray-400">Arctic Monkeys</p></div>
+            </div>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-white">Best Seller Songs</h2>
+                <a href="songs.html" class="text-sm text-gray-400 hover:text-white">More</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/718096/FFFFFF?text=The+1975" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Robbers</h4><p class="text-sm text-gray-400">The 1975</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/718096/FFFFFF?text=S.+Mendes" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Stitches</h4><p class="text-sm text-gray-400">Shawn Mendes</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/718096/FFFFFF?text=T.S.+1989" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Shake It Off</h4><p class="text-sm text-gray-400">Taylor Swift</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/718096/FFFFFF?text=Rihanna" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Kiss is Better</h4><p class="text-sm text-gray-400">Rihanna</p></div>
+                <div class="bg-[#141A2C] p-4 rounded-lg group"><img src="https://placehold.co/200x200/718096/FFFFFF?text=MCR" alt="Album Art" class="w-full rounded-md mb-3 shadow-lg"><h4 class="font-semibold text-white truncate">Cancer</h4><p class="text-sm text-gray-400">My Chemical Romance</p></div>
+            </div>
+            <footer class="text-center mt-12 text-gray-500 text-sm">© 2024 Wilify</footer>
+        </main>
+    </div>
+    <script>
+        feather.replace();
+
+        // --- Profile Dropdown Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButtons = document.getElementById('loginButtons');
+            const profileSection = document.getElementById('profileSection');
+            const profileButton = document.getElementById('profileButton');
+            const profileDropdown = document.getElementById('profileDropdown');
+            const logoutButton = document.getElementById('logoutButton');
+
+            // --- Simulate Login State ---
+            // In a real app, check a token from localStorage.
+            // For this demo, we'll use a session storage flag.
+            let isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+            function updateAuthState() {
+                if (isLoggedIn) {
+                    loginButtons.classList.add('hidden');
+                    profileSection.classList.remove('hidden');
+                } else {
+                    loginButtons.classList.remove('hidden');
+                    profileSection.classList.add('hidden');
+                }
+            }
+
+            // Simulate a login for demo purposes if not set
+            if (sessionStorage.getItem('isLoggedIn') === null) {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                isLoggedIn = true;
+            }
+            
+            // Toggle dropdown visibility
+            profileButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                profileDropdown.classList.toggle('hidden');
+            });
+
+            // Logout logic
+            logoutButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                sessionStorage.setItem('isLoggedIn', 'false');
+                isLoggedIn = false;
+                profileDropdown.classList.add('hidden');
+                updateAuthState();
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', () => {
+                if (!profileDropdown.classList.contains('hidden')) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+
+            // Initial check on page load
+            updateAuthState();
+        });
+    </script>
+</body>
+</html>
+
